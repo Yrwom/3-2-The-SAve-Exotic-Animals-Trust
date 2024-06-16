@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+   New Perspectives on XML
+   Tutorial 3
+   Case Problem 3
+
+   The Save Exotic Animals Trust schema
+   Author: 
+   Date:   
+
+   Filename:         roster.xsd
+   Supporting Files: rosert.xml
+-->      
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="roster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="donor" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="address" type="xs:string"/>
+              <xs:element name="phone" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="type" type="xs:string" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="email" type="xs:string"/>
+              <xs:element name="donation" type="xs:string"/>
+              <xs:element name="method" type="xs:string"/>
+              <xs:element name="effectiveDate" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute name="level" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
